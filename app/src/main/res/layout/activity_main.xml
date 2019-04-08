@@ -1,18 +1,130 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:orientation="vertical"
+    >
 
+    <ListView
+        android:id="@+id/list"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3"
+        />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="bottom"
+        >
     <TextView
+        android:id="@+id/nameTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:text="@string/name"
 
-</android.support.constraint.ConstraintLayout>
+        android:padding="5dp"
+        android:textSize="20sp"
+        android:layout_alignEnd="@id/biographyTextView"
+        />
+
+    <EditText
+        android:id="@+id/nameEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/nameTextView"
+        android:layout_alignTop="@id/nameTextView"
+        android:layout_alignBottom="@id/nameTextView"/>
+
+    <TextView
+        android:id="@+id/biographyTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/biography"
+        android:layout_below="@id/nameTextView"
+        android:padding="5dp"
+        android:textSize="20sp"
+        />
+
+    <EditText
+        android:id="@+id/biographyEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/nameTextView"
+        android:layout_below="@id/nameEditText"
+        android:layout_alignTop="@id/biographyTextView"
+        android:layout_alignBottom="@id/biographyTextView"/>
+
+            <LinearLayout
+                android:id="@+id/imageLayoutContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_below="@+id/biographyEditText"
+                android:gravity="center">
+                
+                <ImageView
+                    android:id="@+id/birdImage"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/bird"/>
+                <ImageView
+                    android:id="@+id/dogImage"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/dog"/>
+                <ImageView
+                    android:id="@+id/catImage"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/cat"/>
+
+                <ImageView
+                    android:id="@+id/pantherImage"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/panther"/>
+                <ImageView
+                    android:id="@+id/horseImage"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/horse"/>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/buttonsLayoutContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_below="@+id/imageLayoutContainer"
+                android:gravity="center">
+
+                <Button
+                    android:id="@+id/addTabButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/add_tab"
+                    />
+                <Button
+                    android:id="@+id/clearAllButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/clear_all"
+                    />
+                <Button
+                    android:id="@+id/createTabsButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/create_tabs"
+                    />
+            </LinearLayout>
+    </RelativeLayout>
+
+
+</LinearLayout>
