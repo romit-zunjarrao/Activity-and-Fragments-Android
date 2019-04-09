@@ -16,6 +16,7 @@ public class ListViewAdapter extends BaseAdapter {
     Context mContext;
     ArrayList<AnimalModalClass> mList;
 
+
     public ListViewAdapter(Context mContext, ArrayList<AnimalModalClass> mList) {
         this.mContext = mContext;
         this.mList = mList;
@@ -38,7 +39,7 @@ public class ListViewAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        ViewHolder vh;
+        final ViewHolder vh;
         if(convertView == null)
         {
             convertView = LayoutInflater.from(mContext).inflate(R.layout.list_row_layout,parent,false);
@@ -50,11 +51,34 @@ public class ListViewAdapter extends BaseAdapter {
             vh = (ViewHolder)convertView.getTag();
         }
         AnimalModalClass animal = mList.get(position);
-        vh.animalImage.setImageBitmap(animal.animalImage);
+        if(animal.animalImage != null) {
+            vh.animalImage.setImageBitmap(animal.animalImage);
+            vh.checkBox.setChecked(true);
+            vh.checkBox.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if(((CheckBox)view).isChecked())
+                    {
+                        vh.animalImage.setVisibility(View.VISIBLE);
+                    }
+                    else
+                    {
+                        vh.animalImage.setVisibility(View.GONE);
+                    }
+                }
+            });
+        }
+        else {
+            vh.animalImage.setVisibility(View.GONE);
+            vh.includeImageTextView.setVisibility(View.GONE);
+            vh.checkBox.setChecked(false);
+            vh.checkBox.setVisibility(View.GONE);
+        }
         vh.animalName.setText(animal.animalName);
-        vh.animalName.setText(animal.animalBiography);
+        vh.animalBiography.setText(animal.animalBiography);
         return convertView;
     }
+
 
     class ViewHolder
     {

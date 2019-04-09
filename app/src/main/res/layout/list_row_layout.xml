@@ -1,19 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="100dp"
     >
     
     <ImageView
         android:id="@+id/animalImage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_width="60dp"
+        android:layout_height="match_parent" />
 
     <TextView
         android:id="@+id/animalName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Dog"
         android:layout_toEndOf="@id/animalImage"
         android:textSize="30sp"/>
 
@@ -21,7 +20,6 @@
         android:id="@+id/animalBiography"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Dog"
         android:layout_below="@id/animalName"
         android:layout_toEndOf="@id/animalImage"
         android:textSize="20sp"/>
@@ -30,7 +28,7 @@
         android:id="@+id/includeImageTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Dog"
+        android:text="@string/include_image"
         android:layout_below="@id/animalBiography"
         android:layout_toEndOf="@id/animalImage"
         android:textSize="20sp"/>

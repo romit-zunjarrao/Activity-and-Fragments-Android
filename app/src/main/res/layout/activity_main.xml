@@ -71,28 +71,33 @@
                     android:id="@+id/birdImage"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/bird"/>
+                    android:src="@drawable/bird"
+                    android:onClick="selectImage"/>
                 <ImageView
                     android:id="@+id/dogImage"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/dog"/>
+                    android:src="@drawable/dog"
+                    android:onClick="selectImage"/>
                 <ImageView
                     android:id="@+id/catImage"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/cat"/>
+                    android:src="@drawable/cat"
+                    android:onClick="selectImage"/>
 
                 <ImageView
                     android:id="@+id/pantherImage"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/panther"/>
+                    android:src="@drawable/panther"
+                    android:onClick="selectImage"/>
                 <ImageView
                     android:id="@+id/horseImage"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/horse"/>
+                    android:src="@drawable/horse"
+                    android:onClick="selectImage"/>
 
 
             </LinearLayout>
@@ -110,12 +115,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/add_tab"
+                    android:onClick="addToList"
                     />
                 <Button
                     android:id="@+id/clearAllButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/clear_all"
+                    android:onClick="clearAll"
                     />
                 <Button
                     android:id="@+id/createTabsButton"

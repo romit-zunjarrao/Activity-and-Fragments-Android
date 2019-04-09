@@ -5,4 +5,8 @@
     <string name="add_tab">ADD TAB</string>
     <string name="clear_all">CLEAR ALL</string>
     <string name="create_tabs">CREATE TABS</string>
+    <string name="empty_animal_name_error">Please enter a name</string>
+    <string name="animal_biography_error">Please enter animal biography</string>
+    <string name="item_count_warning">You can have only 4 items at a time</string>
+    <string name="include_image">Include Image?</string>
 </resources>
