@@ -14,10 +14,10 @@ public class FragmentManager extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fragment_manager);
-        Intent intent = getIntent();
+        /*Intent intent = getIntent();
         Bundle b = intent.getExtras();
         arrayList = intent.getParcelableExtra(MainActivity.intentIdgit aentifier);
-        Log.d("arrayList",arrayList.toString());
+        Log.d("arrayList",arrayList.toString());*/
 
     }
 }

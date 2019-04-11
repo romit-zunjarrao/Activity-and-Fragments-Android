@@ -1,6 +1,7 @@
 package com.example.activityandfragments;
 
 import android.content.Context;
+import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -51,8 +52,15 @@ public class ListViewAdapter extends BaseAdapter {
             vh = (ViewHolder)convertView.getTag();
         }
         AnimalModalClass animal = mList.get(position);
-        if(animal.animalImage != null) {
-            vh.animalImage.setImageBitmap(animal.animalImage);
+        if(animal.animalImage != 0) {
+            switch(animal.animalImage)
+            {
+                case 1:vh.animalImage.setImageBitmap(BitmapFactory.decodeResource(mContext.getResources(), R.drawable.bird)); break;
+                case 2: vh.animalImage.setImageBitmap(BitmapFactory.decodeResource(mContext.getResources(), R.drawable.cat)); break;
+                case 3: vh.animalImage.setImageBitmap(BitmapFactory.decodeResource(mContext.getResources(), R.drawable.dog)); break;
+                case 4: vh.animalImage.setImageBitmap(BitmapFactory.decodeResource(mContext.getResources(), R.drawable.panther)); break;
+                case 5: vh.animalImage.setImageBitmap(BitmapFactory.decodeResource(mContext.getResources(), R.drawable.horse)); break;
+            }
             vh.checkBox.setChecked(true);
             vh.checkBox.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -96,4 +104,5 @@ public class ListViewAdapter extends BaseAdapter {
             this.checkBox = view.findViewById(R.id.animalImageShowCheckBox);
         }
     }
+
 }

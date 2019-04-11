@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
     ListView list;
     Button addTabButton;
     EditText animalNameEditText,animalBiographyEditText;
-    Bitmap selectedAnimalImage;
+    int selectedAnimalImage;
     ArrayList<AnimalModalClass> arrayList;
     ListViewAdapter adapter;
 
@@ -80,17 +80,23 @@ public class MainActivity extends AppCompatActivity {
 
     protected void selectImage(View view)
     {
-        if(((BitmapDrawable)((ImageView)view).getDrawable()).getBitmap() == selectedAnimalImage)
-            selectedAnimalImage = null;
-        else
-             selectedAnimalImage = ((BitmapDrawable)((ImageView)view).getDrawable()).getBitmap();
+
+        switch(view.getId())
+        {
+            case R.id.birdImage:if(selectedAnimalImage == 1) { selectedAnimalImage = 0;} else { selectedAnimalImage = 1;} break;
+            case R.id.catImage: if(selectedAnimalImage == 2) { selectedAnimalImage = 0;} else { selectedAnimalImage = 2;} break;
+            case R.id.dogImage: if(selectedAnimalImage == 3) { selectedAnimalImage = 0;} else { selectedAnimalImage = 3;} break;
+            case R.id.pantherImage: if(selectedAnimalImage == 4) { selectedAnimalImage = 0;} else { selectedAnimalImage = 4;} break;
+            case R.id.horseImage: if(selectedAnimalImage == 5) { selectedAnimalImage = 0;} else { selectedAnimalImage = 5;} break;
+        }
+
     }
 
     public void clearAllInput()
     {
         animalNameEditText.setText("");
         animalBiographyEditText.setText("");
-        selectedAnimalImage = null;
+        selectedAnimalImage = 0;
     }
 
 
