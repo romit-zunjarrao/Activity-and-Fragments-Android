@@ -26,25 +26,29 @@
             android:id="@+id/fragment1Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            style="?android:attr/borderlessButtonStyle"/>
 
         <Button
             android:id="@+id/fragment2Button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            style="?android:attr/borderlessButtonStyle"/>
 
         <Button
             android:id="@+id/fragment3Button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            style="?android:attr/borderlessButtonStyle"/>
 
         <Button
             android:id="@+id/fragment4Button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            style="?android:attr/borderlessButtonStyle"/>
     </LinearLayout>
 
 </LinearLayout>

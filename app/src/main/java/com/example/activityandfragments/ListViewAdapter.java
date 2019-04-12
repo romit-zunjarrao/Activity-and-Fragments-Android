@@ -1,5 +1,6 @@
 package com.example.activityandfragments;
 
+import android.app.Activity;
 import android.content.Context;
 import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
@@ -16,6 +17,7 @@ import java.util.zip.Inflater;
 public class ListViewAdapter extends BaseAdapter {
     Context mContext;
     ArrayList<AnimalModalClass> mList;
+    int animalImageNumber;
 
 
     public ListViewAdapter(Context mContext, ArrayList<AnimalModalClass> mList) {
@@ -39,7 +41,7 @@ public class ListViewAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(int position, View convertView, final ViewGroup parent) {
         final ViewHolder vh;
         if(convertView == null)
         {
@@ -52,6 +54,7 @@ public class ListViewAdapter extends BaseAdapter {
             vh = (ViewHolder)convertView.getTag();
         }
         AnimalModalClass animal = mList.get(position);
+        animalImageNumber =animal.animalImage;
         if(animal.animalImage != 0) {
             switch(animal.animalImage)
             {

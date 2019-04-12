@@ -17,6 +17,12 @@ public class Fragment1 extends Fragment {
     ImageView animalImage;
     TextView animalName, animalBiography;
     Button nextButton;
+    FirstFragmentNavigationHandler navigationHandler;
+    interface FirstFragmentNavigationHandler{
+        void navigateFromFragment1();
+    }
+
+
     public Fragment1() {
         // Required empty public constructor
     }
@@ -31,10 +37,12 @@ public class Fragment1 extends Fragment {
         animalName = view.findViewById(R.id.fragment1AnimalName);
         animalBiography = view.findViewById(R.id.fragment1AnimalBiography);
         nextButton = view.findViewById(R.id.fragment_next_button);
+        nextButton.setVisibility(View.GONE);
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                navigationHandler = (FirstFragmentNavigationHandler) getContext();
+                navigationHandler.navigateFromFragment1();
             }
         });
         return view;
@@ -53,15 +61,33 @@ public class Fragment1 extends Fragment {
         int image = b.getInt("image");
         animalName.setText(name);
         animalBiography.setText(biography);
-        switch(image)
+        int size = b.getInt("size");
+        if(size>1)
         {
-            case 1: animalImage.setImageBitmap(BitmapFactory.decodeResource(getContext().getResources(), R.drawable.bird)); break;
-            case 2: animalImage.setImageBitmap(BitmapFactory.decodeResource(getContext().getResources(), R.drawable.cat)); break;
-            case 3: animalImage.setImageBitmap(BitmapFactory.decodeResource(getContext().getResources(), R.drawable.dog)); break;
-            case 4: animalImage.setImageBitmap(BitmapFactory.decodeResource(getContext().getResources(), R.drawable.panther)); break;
-            case 5: animalImage.setImageBitmap(BitmapFactory.decodeResource(getContext().getResources(), R.drawable.horse)); break;
-
+            nextButton.setVisibility(View.VISIBLE);
         }
+        if(image != 0) {
+            switch (image) {
+                case 1:
+                    animalImage.setImageBitmap(BitmapFactory.decodeResource(getContext().getResources(), R.drawable.bird));
+                    break;
+                case 2:
+                    animalImage.setImageBitmap(BitmapFactory.decodeResource(getContext().getResources(), R.drawable.cat));
+                    break;
+                case 3:
+                    animalImage.setImageBitmap(BitmapFactory.decodeResource(getContext().getResources(), R.drawable.dog));
+                    break;
+                case 4:
+                    animalImage.setImageBitmap(BitmapFactory.decodeResource(getContext().getResources(), R.drawable.panther));
+                    break;
+                case 5:
+                    animalImage.setImageBitmap(BitmapFactory.decodeResource(getContext().getResources(), R.drawable.horse));
+                    break;
+
+            }
+        }
+        else
+            animalImage.setVisibility(View.INVISIBLE);
     }
 
 }

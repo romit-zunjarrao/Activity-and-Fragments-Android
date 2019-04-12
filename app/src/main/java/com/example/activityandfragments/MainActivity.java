@@ -113,17 +113,27 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void createTabs(View view) {
-        Intent intent = new Intent(this,FragmentManager.class);
-        Log.d("arrayList",arrayList.toString());
-        JSONArray jsonArray = new JSONArray();
-        for(int i=0;i<arrayList.size();i++)
+        if(arrayList.size()==0)
         {
-            jsonArray.put(arrayList.get(i).getJSONObject());
+            Toast.makeText(this,"Please Add atleast one Animal to list", Toast.LENGTH_SHORT).show();
         }
-        Log.d("json",""+jsonArray);
+        else {
 
-       //intent.putExtra(MainActivity.intentIdentifier,jsonArray.toString());
-       intent.putExtra("json",""+jsonArray);
-        startActivity(intent);
+
+            Intent intent = new Intent(this, FragmentManager.class);
+            Log.d("arrayList", arrayList.toString());
+            JSONArray jsonArray = new JSONArray();
+            for (int i = 0; i < arrayList.size(); i++) {
+                jsonArray.put(arrayList.get(i).getJSONObject());
+            }
+            Log.d("json", "" + jsonArray);
+            intent.putExtra("json", "" + jsonArray);
+            startActivity(intent);
+        }
+    }
+
+    public void changeImageValue(int position, int value)
+    {
+        arrayList.get(position).animalImage = value;
     }
 }
