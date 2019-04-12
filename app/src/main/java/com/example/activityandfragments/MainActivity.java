@@ -1,5 +1,6 @@
 package com.example.activityandfragments;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
@@ -15,6 +16,8 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import org.json.JSONArray;
+
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
@@ -25,6 +28,8 @@ public class MainActivity extends AppCompatActivity {
     int selectedAnimalImage;
     ArrayList<AnimalModalClass> arrayList;
     ListViewAdapter adapter;
+
+    static final String intentIdentifier = "intentIdentifier";
 
 
     @Override
@@ -105,5 +110,20 @@ public class MainActivity extends AppCompatActivity {
         arrayList.clear();
         clearAllInput();
         adapter.notifyDataSetInvalidated();
+    }
+
+    public void createTabs(View view) {
+        Intent intent = new Intent(this,FragmentManager.class);
+        Log.d("arrayList",arrayList.toString());
+        JSONArray jsonArray = new JSONArray();
+        for(int i=0;i<arrayList.size();i++)
+        {
+            jsonArray.put(arrayList.get(i).getJSONObject());
+        }
+        Log.d("json",""+jsonArray);
+
+       //intent.putExtra(MainActivity.intentIdentifier,jsonArray.toString());
+       intent.putExtra("json",""+jsonArray);
+        startActivity(intent);
     }
 }

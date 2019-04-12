@@ -9,4 +9,9 @@
     <string name="animal_biography_error">Please enter animal biography</string>
     <string name="item_count_warning">You can have only 4 items at a time</string>
     <string name="include_image">Include Image?</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="next">NEXT</string>
+    <string name="previous">previous</string>
 </resources>
